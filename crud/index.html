@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Sains</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        h1 {
+            margin-bottom: 0;
+        }
+        nav {
+            background-color: #4169e1;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .side-nav {
+            width: 200px;
+            background-color: #e6f2ff;
+            padding: 1rem;
+            margin-right: 2rem;
+        }
+        .side-nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .side-nav ul li {
+            margin-bottom: 0.5rem;
+        }
+        .side-nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+        }
+        .science-topic {
+            background-color: white;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Perubahan untuk navigasi di kiri */
+        .side-nav ul {
+            display: flex;
+            flex-direction: column;
+        }
+        .side-nav ul li {
+            margin-bottom: 1rem;
+        }
+        /* Gaya untuk kotak pencarian */
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            margin: 0.5rem 0;
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            z-index: 1000;
+            background-color: #1e90ff;
+            padding: 0.3rem;
+            border-radius: 0 0 4px 4px;
+        }
+        #search-input {
+            width: 200px;
+            padding: 0.3rem;
+            font-size: 0.9rem;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+        #search-button {
+            padding: 0.3rem 0.7rem;
+            font-size: 0.9rem;
+            background-color: #4169e1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 0.3rem;
+        }
+        #search-button:hover {
+            background-color: #187bcd;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dunia Sains</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#physics">Fisika</a></li>
+            <li><a href="#chemistry">Kimia</a></li>
+            <li><a href="#biology">Biologi</a></li>
+            <li><a href="#astronomy">Astronomi</a></li>
+        </ul>
+    </nav>
+    <main>
+        <nav class="side-nav">
+            <ul>
+                <li><a href="#physics">Fisika</a></li>
+                <li><a href="#chemistry">Kimia</a></li>
+                <li><a href="#biology">Biologi</a></li>
+                <li><a href="#astronomy">Astronomi</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari topik sains...">
+            <button id="search-button">Cari</button>
+        </div>
+        <div class="content">
+            <section id="physics" class="science-topic">
+                <h2>Fisika</h2>
+                <p>Fisika adalah ilmu alam yang mempelajari materi, unsur-unsur fundamentalnya, gerak dan perilakunya melalui ruang dan waktu, serta entitas terkait berupa energi dan gaya.</p>
+            </section>
+            <section id="chemistry" class="science-topic">
+                <h2>Kimia</h2>
+                <p>Kimia adalah ilmu pengetahuan tentang sifat dan perilaku materi. Kimia adalah ilmu pengetahuan alam yang mencakup unsur-unsur yang membentuk materi hingga senyawa yang terdiri dari atom, molekul, dan ion.</p>
+            </section>
+            <section id="biology" class="science-topic">
+                <h2>Biologi</h2>
+                <p>Biologi adalah ilmu alam yang mempelajari kehidupan dan organisme hidup, termasuk struktur fisik, proses kimia, interaksi molekuler, mekanisme fisiologis, perkembangan dan evolusi.</p>
+            </section>
+            <section id="astronomy" class="science-topic">
+                <h2>Astronomi</h2>
+                <p>Astronomi adalah ilmu alam yang mempelajari benda-benda dan fenomena langit. Ilmu ini menggunakan matematika, fisika, dan kimia untuk menjelaskan asal-usul dan evolusi benda-benda tersebut.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const scienceTopics = document.querySelectorAll('.science-topic');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase();
+                scienceTopics.forEach(topic => {
+                    const content = topic.textContent.toLowerCase();
+                    if (content.includes(searchTerm)) {
+                        topic.style.display = 'block';
+                        highlightText(topic, searchTerm);
+                    } else {
+                        topic.style.display = 'none';
+                    }
+                });
+            }
+
+            function highlightText(element, term) {
+                const innerHTML = element.innerHTML;
+                const index = innerHTML.toLowerCase().indexOf(term);
+                if (index >= 0) {
+                    element.innerHTML = innerHTML.substring(0, index) + 
+                        "<span class='highlight'>" + 
+                        innerHTML.substring(index, index + term.length) + 
+                        "</span>" + 
+                        innerHTML.substring(index + term.length);
+                }
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+    <footer>
+        <p>&copy; 2024 Dunia Sains. By Oost.</p>
+    </footer>
+</body>
+</html>
